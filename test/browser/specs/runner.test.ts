@@ -114,4 +114,3 @@ TimeoutError: locator.click: Timeout <ms> exceeded.
 FAIL |webkit| hooks-timeout.test.ts > timeouts are failing correctly > onTestFinished > fails global
 TimeoutError: locator.click: Timeout <ms> exceeded.
  ❯ hooks-timeout.test.ts:LINE:COL"
-`)
