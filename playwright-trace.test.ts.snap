@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`playwright tracing > vitest generates trace files when running with \`on\` 1`] = `
+[
+  "chromium-a single test-0-0.trace.zip",
+  "chromium-nested suite-suite test-0-0.trace.zip",
+  "chromium-repeated retried tests-0-0.trace.zip",
+  "chromium-repeated retried tests-0-1.trace.zip",
+  "chromium-repeated retried tests-0-2.trace.zip",
+  "chromium-repeated retried tests-1-0.trace.zip",
+  "chromium-repeated retried tests-1-1.trace.zip",
+  "chromium-repeated retried tests-1-2.trace.zip",
+  "chromium-repeated retried tests-2-0.trace.zip",
+  "chromium-repeated retried tests-2-1.trace.zip",
+  "chromium-repeated retried tests-2-2.trace.zip",
+  "chromium-repeated test-0-0.trace.zip",
+  "chromium-repeated test-1-0.trace.zip",
+  "chromium-repeated test-2-0.trace.zip",
+  "chromium-retried test-0-0.trace.zip",
+  "chromium-retried test-0-1.trace.zip",
+  "chromium-retried test-0-2.trace.zip",
+]
+`;
