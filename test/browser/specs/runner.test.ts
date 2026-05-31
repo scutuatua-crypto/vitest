@@ -6,14 +6,6 @@ const snapshot = timeoutErrorsIndexes.map((index) => {
   ].join('\n')
 }).sort().join('\n\n')
 
-const snapshot = timeoutErrorsIndexes.map((index) => {
-  return [
-    lines[index - 1].replace(/:(\d+):(\d+)$/, ':LINE:COL'),
-    lines[index].replace(/Timeout \d+ms exceeded/, 'Timeout <ms> exceeded'),
-    lines[index + 4] ? lines[index + 4].replace(/:(\d+):(\d+)$/, ':LINE:COL') : '',
-  ].join('\n')
-}).sort().join('\n\n')
-
 expect(snapshot).toMatchInlineSnapshot(`
 "FAIL |chromium| hooks-timeout.test.ts > timeouts are failing correctly > afterAll
 TimeoutError: locator.click: Timeout <ms> exceeded.
