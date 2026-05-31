@@ -1,4 +1,4 @@
-  const snapshot = timeoutErrorsIndexes.map((index) => {
+const snapshot = timeoutErrorsIndexes.map((index) => {
     return [
       lines[index - 1].replace(/:(\d+):(\d+)$/, ':LINE:COL'),
       lines[index].replace(/Timeout \d+ms exceeded/, 'Timeout <ms> exceeded'),
