@@ -1,4 +1,3 @@
-  // --- ก้อนนี้คัดลอกไปแปะแทนของเดิมใน runner.test.ts ได้เลย ---
   const snapshot = timeoutErrorsIndexes.map((index) => {
     return [
       lines[index - 1].replace(/:(\d+):(\d+)$/, ':LINE:COL'),
