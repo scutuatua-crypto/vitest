@@ -235,7 +235,7 @@ jobs:
         run: pnpm run test:browser:playwright
         env:
           BROWSER_NO_WEBKIT: ${{ matrix.os == 'windows-latest' && 'true' || '' }}
-          
+
       - name: Test Browser (webdriverio)
         run: pnpm run test:browser:webdriverio
 
