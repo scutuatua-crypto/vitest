@@ -46,11 +46,9 @@ jobs:
       - name: Build
         run: pnpm run build
       - name: Test
-        # ข้ามขั้นตอนที่มีปัญหาเฉพาะบน Windows/macOS เพื่อความเสถียร
         if: runner.os == 'Linux'
         run: pnpm run test:ci
       - name: Test (Light)
-        # รันเฉพาะส่วนที่จำเป็นบน Windows/macOS เพื่อป้องกัน Timeout
         if: runner.os != 'Linux'
         run: pnpm run test:ci --filter !@vitest/test-integration-dts-browser-playwright
 
@@ -69,6 +67,5 @@ jobs:
       - run: pnpm i
       - run: pnpm run build
       - name: Test Browser
-        # ปิดการรัน Browser Test หนักๆ บน OS ที่มีปัญหาชั่วคราว
-        if: runner.os != 'Windows' 
+        if: runner.os != 'Windows'
         run: pnpm run test:browser:playwright
