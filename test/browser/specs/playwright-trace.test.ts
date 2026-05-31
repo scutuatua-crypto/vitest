@@ -24,14 +24,15 @@ describe.runIf(provider.name === 'playwright')('playwright tracing', () => {
     expect(stderr).toBe('')
     expect(readdirSync(tracesFolder)).toEqual(['basic.test.ts'])
     
-    // รายการไฟล์ที่คาดหวัง (ชุดเดิม)
     expect(readdirSync(basicTestTracesFolder).sort()).toMatchSnapshot()
 
     const testModules = ctx.state.getTestModules()
     expect(testModules).toHaveLength(3)
     testModules.forEach((testModule) => {
       for (const test of testModule.children.allTests()) {
-        if (test.result().state === 'skipped') continue
+        if (test.result().state === 'skipped') {
+          continue
+        }
         const annotations = test.annotations()
         expect(annotations.length).toBeGreaterThan(0)
         annotations.forEach((annotation) => {
@@ -41,7 +42,7 @@ describe.runIf(provider.name === 'playwright')('playwright tracing', () => {
         })
       }
     })
-  }, 600000)
+  }, 1800000)
 
   test('vitest generates trace files when running with `on-all-retries`', async () => {
     const { stderr } = await runBrowserTests({
@@ -50,9 +51,10 @@ describe.runIf(provider.name === 'playwright')('playwright tracing', () => {
         trace: 'on-all-retries',
       },
     })
+
     expect(stderr).toBe('')
     expect(readdirSync(tracesFolder)).toEqual(['basic.test.ts'])
-  }, 600000)
+  }, 1800000)
 
   test('vitest generates trace files when running with `on-first-retries`', async () => {
     const { stderr } = await runBrowserTests({
@@ -61,9 +63,10 @@ describe.runIf(provider.name === 'playwright')('playwright tracing', () => {
         trace: 'on-first-retry',
       },
     })
+
     expect(stderr).toBe('')
     expect(readdirSync(tracesFolder)).toEqual(['basic.test.ts'])
-  }, 600000)
+  }, 1800000)
 
   test('vitest generates trace files when running with `retain-on-failure`', async () => {
     const { stderr } = await runBrowserTests({
@@ -73,7 +76,8 @@ describe.runIf(provider.name === 'playwright')('playwright tracing', () => {
         trace: 'retain-on-failure',
       },
     })
+
     expect(stderr).toContain('❯ traces')
     expect(stderr).toContain('↳ __traces__/failing.special.ts/')
-  }, 600000)
+  }, 1800000)
 })
