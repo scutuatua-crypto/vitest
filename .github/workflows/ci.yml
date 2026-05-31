@@ -233,6 +233,8 @@ jobs:
 
       - name: Test Browser (playwright)
         run: pnpm run test:browser:playwright
+        env:
+          BROWSER_NO_WEBKIT: ${{ runner.os == 'Windows' && 'true' || '' }}
 
       - name: Test Browser (webdriverio)
         run: pnpm run test:browser:webdriverio
