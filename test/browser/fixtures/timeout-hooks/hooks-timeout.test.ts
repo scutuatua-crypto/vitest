@@ -1,19 +1,21 @@
 import { page, server } from 'vitest/browser';
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, onTestFailed, onTestFinished } from 'vitest';
 
+const TIMEOUT = server.provider === 'playwright' && typeof process !== 'undefined' && process.platform === 'win32' ? 500 : 150
+
 describe.runIf(server.provider === 'playwright')('timeouts are failing correctly', () => {
   it('click on non-existing element fails', async () => {
     await page.getByRole('code').click()
-  }, 150)
+  }, TIMEOUT)
 
   it('expect.element on non-existing element fails', async () => {
     await expect.element(page.getByRole('code')).toBeVisible()
-  }, 150)
+  }, TIMEOUT)
 
   describe('beforeEach', () => {
     beforeEach(async () => {
       await page.getByTestId('non-existing').click()
-    }, 150)
+    }, TIMEOUT)
 
     it('skipped', () => {})
   })
@@ -21,7 +23,7 @@ describe.runIf(server.provider === 'playwright')('timeouts are failing correctly
   describe('afterEach', () => {
     afterEach(async () => {
       await page.getByTestId('non-existing').click()
-    }, 150)
+    }, TIMEOUT)
 
     it('skipped', () => {})
   })
@@ -29,7 +31,7 @@ describe.runIf(server.provider === 'playwright')('timeouts are failing correctly
   describe('beforeAll', () => {
     beforeAll(async () => {
       await page.getByTestId('non-existing').click()
-    }, 150)
+    }, TIMEOUT)
 
     it('skipped', () => {})
   })
@@ -37,7 +39,7 @@ describe.runIf(server.provider === 'playwright')('timeouts are failing correctly
   describe('afterAll', () => {
     afterAll(async () => {
       await page.getByTestId('non-existing').click()
-    }, 150)
+    }, TIMEOUT)
 
     it('skipped', () => {})
   })
@@ -46,13 +48,13 @@ describe.runIf(server.provider === 'playwright')('timeouts are failing correctly
     it('fails', ({ onTestFinished }) => {
       onTestFinished(async () => {
         await page.getByTestId('non-existing').click()
-      }, 150)
+      }, TIMEOUT)
     })
 
     it('fails global', () => {
       onTestFinished(async () => {
         await page.getByTestId('non-existing').click()
-      }, 150)
+      }, TIMEOUT)
     })
   })
 
@@ -60,7 +62,7 @@ describe.runIf(server.provider === 'playwright')('timeouts are failing correctly
     it('fails', ({ onTestFailed }) => {
       onTestFailed(async () => {
         await page.getByTestId('non-existing').click()
-      }, 150)
+      }, TIMEOUT)
 
       expect.unreachable()
     })
@@ -68,7 +70,7 @@ describe.runIf(server.provider === 'playwright')('timeouts are failing correctly
     it('fails global', () => {
       onTestFailed(async () => {
         await page.getByTestId('non-existing').click()
-      }, 150)
+      }, TIMEOUT)
 
       expect.unreachable()
     })
