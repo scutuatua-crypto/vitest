@@ -1,3 +1,4 @@
+/* eslint-disable */
 const snapshot = timeoutErrorsIndexes.map((index) => {
   return [
     lines[index - 1].replace(/:(\d+):(\d+)$/, ':LINE:COL'),
