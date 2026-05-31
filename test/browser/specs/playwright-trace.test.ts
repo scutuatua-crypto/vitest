@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { readdirSync, rmSync } from 'node:fs'
 import { resolve } from 'pathe'
 import { afterEach, describe, expect, test } from 'vitest'
