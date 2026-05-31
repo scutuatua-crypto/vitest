@@ -7,8 +7,8 @@ const snapshot = timeoutErrorsIndexes.map((index) => {
   ].join('\n')
 }).sort().join('\n\n')
 
-expect(snapshot).toMatchInlineSnapshot(`
-"FAIL |chromium| hooks-timeout.test.ts > timeouts are failing correctly > afterAll
+// เราแยกก้อน snapshot ออกมาแบบนี้จะทำให้ Editor ไม่งงครับ
+const expectedSnapshot = `FAIL |chromium| hooks-timeout.test.ts > timeouts are failing correctly > afterAll
 TimeoutError: locator.click: Timeout <ms> exceeded.
  ❯ hooks-timeout.test.ts:LINE:COL
 
@@ -114,5 +114,6 @@ TimeoutError: locator.click: Timeout <ms> exceeded.
 
 FAIL |webkit| hooks-timeout.test.ts > timeouts are failing correctly > onTestFinished > fails global
 TimeoutError: locator.click: Timeout <ms> exceeded.
- ❯ hooks-timeout.test.ts:LINE:COL"
-);
+ ❯ hooks-timeout.test.ts:LINE:COL`;
+
+expect(snapshot).toBe(expectedSnapshot);
