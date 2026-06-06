@@ -563,9 +563,6 @@ importers:
       '@types/ws':
         specifier: 'catalog:'
         version: 8.18.1
-      '@vitest/runner':
-        specifier: workspace:*
-        version: link:../runner
       birpc:
         specifier: 'catalog:'
         version: 4.0.0
@@ -775,10 +772,6 @@ importers:
       tinyrainbow:
         specifier: 'catalog:'
         version: 3.1.0
-    devDependencies:
-      '@vitest/runner':
-        specifier: workspace:*
-        version: link:../runner
 
   packages/mocker:
     dependencies:
@@ -835,18 +828,6 @@ importers:
       react-is-18:
         specifier: npm:react-is@18.3.1
         version: react-is@18.3.1
-
-  packages/runner:
-    dependencies:
-      '@vitest/utils':
-        specifier: workspace:*
-        version: link:../utils
-      pathe:
-        specifier: 'catalog:'
-        version: 2.0.3
-      tinybench:
-        specifier: 'catalog:'
-        version: 6.0.1
 
   packages/snapshot:
     dependencies:
@@ -935,9 +916,6 @@ importers:
       '@vitest/browser-webdriverio':
         specifier: workspace:*
         version: link:../browser-webdriverio
-      '@vitest/runner':
-        specifier: workspace:*
-        version: link:../runner
       '@vueuse/core':
         specifier: 'catalog:'
         version: 14.2.1(vue@3.5.29(typescript@5.9.3))
@@ -1047,9 +1025,6 @@ importers:
       '@vitest/pretty-format':
         specifier: workspace:*
         version: link:../pretty-format
-      '@vitest/runner':
-        specifier: workspace:*
-        version: link:../runner
       '@vitest/spy':
         specifier: workspace:*
         version: link:../spy
@@ -1376,9 +1351,6 @@ importers:
       '@vitest/mocker':
         specifier: workspace:*
         version: link:../../packages/mocker
-      '@vitest/runner':
-        specifier: workspace:*
-        version: link:../../packages/runner
       '@vitest/test-dep-optimizer-external':
         specifier: file:./deps/optimizer/external
         version: file:test/e2e/deps/optimizer/external
@@ -1421,6 +1393,9 @@ importers:
       test-dep-simple:
         specifier: file:./deps/dep-simple
         version: file:test/e2e/deps/dep-simple
+      test-dep-simple2:
+        specifier: file:./deps/dep-simple2
+        version: file:test/e2e/deps/dep-simple2
       tinyexec:
         specifier: ^1.0.2
         version: 1.0.2
@@ -1463,18 +1438,12 @@ importers:
 
   test/e2e/dts/exact-optional-property-no-node:
     devDependencies:
-      '@vitest/runner':
-        specifier: workspace:*
-        version: link:../../../../packages/runner
       vitest:
         specifier: workspace:*
         version: link:../../../../packages/vitest
 
   test/e2e/dts/exact-optional-property-node:
     devDependencies:
-      '@vitest/runner':
-        specifier: workspace:*
-        version: link:../../../../packages/runner
       vitest:
         specifier: workspace:*
         version: link:../../../../packages/vitest
@@ -1487,9 +1456,6 @@ importers:
 
   test/e2e/dts/no-dispose:
     devDependencies:
-      '@vitest/runner':
-        specifier: workspace:*
-        version: link:../../../../packages/runner
       vitest:
         specifier: workspace:*
         version: link:../../../../packages/vitest
@@ -1583,9 +1549,6 @@ importers:
       '@vitest/pretty-format':
         specifier: workspace:*
         version: link:../../packages/pretty-format
-      '@vitest/runner':
-        specifier: workspace:*
-        version: link:../../packages/runner
       '@vitest/test-dep-cjs':
         specifier: file:./deps/dep-cjs
         version: file:test/unit/deps/dep-cjs
@@ -9705,6 +9668,9 @@ packages:
 
   test-dep-error@file:test/browser/deps/test-dep-error:
     resolution: {directory: test/browser/deps/test-dep-error, type: directory}
+
+  test-dep-simple2@file:test/e2e/deps/dep-simple2:
+    resolution: {directory: test/e2e/deps/dep-simple2, type: directory}
 
   test-dep-simple@file:test/e2e/deps/dep-simple:
     resolution: {directory: test/e2e/deps/dep-simple, type: directory}
@@ -19040,6 +19006,8 @@ snapshots:
       test-dep-conditions-indirect: file:test/e2e/deps/test-dep-conditions-indirect
 
   test-dep-error@file:test/browser/deps/test-dep-error: {}
+
+  test-dep-simple2@file:test/e2e/deps/dep-simple2: {}
 
   test-dep-simple@file:test/e2e/deps/dep-simple: {}
 

@@ -1,4 +1,5 @@
-import type { CancelReason, FileSpecification } from '@vitest/runner'
+import type { CancelReason } from 'vitest'
+import type { FileSpecification } from 'vitest/internal/browser'
 import type { OTELCarrier } from 'vitest/internal/traces'
 import { getBrowserState } from './utils'
 
@@ -31,6 +32,8 @@ export interface IframeExecuteEvent {
   files: FileSpecification[]
   iframeId: string
   context: string
+  concurrencyId: number
+  workerId: number
 }
 
 export interface IframeCleanupEvent {
